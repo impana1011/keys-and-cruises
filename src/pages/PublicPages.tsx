@@ -29,7 +29,7 @@ export function HomePage() {
   );
 }
 
-export function VehiclesPage({ q: q0 = "", category: c0 = "All" }: { q?: string; category?: string }) {
+export function VehiclesPage({ q: q0 = "", category: c0 = "All" }: { q?: string | undefined; category?: string | undefined }) {
   const [q, setQ] = useState(q0);
   const [cat, setCat] = useState(c0);
   const list = vehicleService.getAll().filter((v) =>
@@ -90,7 +90,7 @@ export function VehicleDetailsPage({ v }: { v: Vehicle }) {
   );
 }
 
-export function BookingPage({ v, pickup: p0 = "", ret: r0 = "" }: { v: Vehicle; pickup?: string; ret?: string }) {
+export function BookingPage({ v, pickup: p0 = "", ret: r0 = "" }: { v: Vehicle; pickup?: string | undefined; ret?: string | undefined }) {
   const nav = useNavigate();
   const [pickup, setPickup] = useState(p0);
   const [ret, setRet] = useState(r0);
