@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MyBookingsRouteImport } from './routes/my-bookings'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
+import { Route as AdminVehiclesRouteImport } from './routes/admin.vehicles'
+import { Route as BookingConfirmationIdRouteImport } from './routes/booking-confirmation.$id'
+import { Route as BookingVehicleIdRouteImport } from './routes/booking.$vehicleId'
+import { Route as VehiclesIndexRouteImport } from './routes/vehicles.index'
+import { Route as VehiclesIdRouteImport } from './routes/vehicles.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyBookingsRoute = MyBookingsRouteImport.update({
+  id: '/my-bookings',
+  path: '/my-bookings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminBookingsRoute = AdminBookingsRouteImport.update({
+  id: '/admin/bookings',
+  path: '/admin/bookings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminVehiclesRoute = AdminVehiclesRouteImport.update({
+  id: '/admin/vehicles',
+  path: '/admin/vehicles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingConfirmationIdRoute = BookingConfirmationIdRouteImport.update({
+  id: '/booking-confirmation/$id',
+  path: '/booking-confirmation/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingVehicleIdRoute = BookingVehicleIdRouteImport.update({
+  id: '/booking/$vehicleId',
+  path: '/booking/$vehicleId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VehiclesIndexRoute = VehiclesIndexRouteImport.update({
+  id: '/vehicles/',
+  path: '/vehicles/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VehiclesIdRoute = VehiclesIdRouteImport.update({
+  id: '/vehicles/$id',
+  path: '/vehicles/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/my-bookings': typeof MyBookingsRoute
+  '/register': typeof RegisterRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/vehicles': typeof AdminVehiclesRoute
+  '/booking-confirmation/$id': typeof BookingConfirmationIdRoute
+  '/booking/$vehicleId': typeof BookingVehicleIdRoute
+  '/vehicles/$id': typeof VehiclesIdRoute
+  '/admin/': typeof AdminIndexRoute
+  '/vehicles/': typeof VehiclesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/my-bookings': typeof MyBookingsRoute
+  '/register': typeof RegisterRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/vehicles': typeof AdminVehiclesRoute
+  '/booking-confirmation/$id': typeof BookingConfirmationIdRoute
+  '/booking/$vehicleId': typeof BookingVehicleIdRoute
+  '/vehicles/$id': typeof VehiclesIdRoute
+  '/admin': typeof AdminIndexRoute
+  '/vehicles': typeof VehiclesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/my-bookings': typeof MyBookingsRoute
+  '/register': typeof RegisterRoute
+  '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/vehicles': typeof AdminVehiclesRoute
+  '/booking-confirmation/$id': typeof BookingConfirmationIdRoute
+  '/booking/$vehicleId': typeof BookingVehicleIdRoute
+  '/vehicles/$id': typeof VehiclesIdRoute
+  '/admin/': typeof AdminIndexRoute
+  '/vehicles/': typeof VehiclesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/my-bookings'
+    | '/register'
+    | '/admin/bookings'
+    | '/admin/vehicles'
+    | '/booking-confirmation/$id'
+    | '/booking/$vehicleId'
+    | '/vehicles/$id'
+    | '/admin/'
+    | '/vehicles/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/my-bookings'
+    | '/register'
+    | '/admin/bookings'
+    | '/admin/vehicles'
+    | '/booking-confirmation/$id'
+    | '/booking/$vehicleId'
+    | '/vehicles/$id'
+    | '/admin'
+    | '/vehicles'
+  id:
+    | '__root__'
+    | '/'
+    | '/login'
+    | '/my-bookings'
+    | '/register'
+    | '/admin/bookings'
+    | '/admin/vehicles'
+    | '/booking-confirmation/$id'
+    | '/booking/$vehicleId'
+    | '/vehicles/$id'
+    | '/admin/'
+    | '/vehicles/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LoginRoute: typeof LoginRoute
+  MyBookingsRoute: typeof MyBookingsRoute
+  RegisterRoute: typeof RegisterRoute
+  AdminBookingsRoute: typeof AdminBookingsRoute
+  AdminVehiclesRoute: typeof AdminVehiclesRoute
+  BookingConfirmationIdRoute: typeof BookingConfirmationIdRoute
+  BookingVehicleIdRoute: typeof BookingVehicleIdRoute
+  VehiclesIdRoute: typeof VehiclesIdRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  VehiclesIndexRoute: typeof VehiclesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-bookings': {
+      id: '/my-bookings'
+      path: '/my-bookings'
+      fullPath: '/my-bookings'
+      preLoaderRoute: typeof MyBookingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/bookings': {
+      id: '/admin/bookings'
+      path: '/admin/bookings'
+      fullPath: '/admin/bookings'
+      preLoaderRoute: typeof AdminBookingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/vehicles': {
+      id: '/admin/vehicles'
+      path: '/admin/vehicles'
+      fullPath: '/admin/vehicles'
+      preLoaderRoute: typeof AdminVehiclesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking-confirmation/$id': {
+      id: '/booking-confirmation/$id'
+      path: '/booking-confirmation/$id'
+      fullPath: '/booking-confirmation/$id'
+      preLoaderRoute: typeof BookingConfirmationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking/$vehicleId': {
+      id: '/booking/$vehicleId'
+      path: '/booking/$vehicleId'
+      fullPath: '/booking/$vehicleId'
+      preLoaderRoute: typeof BookingVehicleIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vehicles/': {
+      id: '/vehicles/'
+      path: '/vehicles'
+      fullPath: '/vehicles/'
+      preLoaderRoute: typeof VehiclesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vehicles/$id': {
+      id: '/vehicles/$id'
+      path: '/vehicles/$id'
+      fullPath: '/vehicles/$id'
+      preLoaderRoute: typeof VehiclesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
+  MyBookingsRoute: MyBookingsRoute,
+  RegisterRoute: RegisterRoute,
+  AdminBookingsRoute: AdminBookingsRoute,
+  AdminVehiclesRoute: AdminVehiclesRoute,
+  BookingConfirmationIdRoute: BookingConfirmationIdRoute,
+  BookingVehicleIdRoute: BookingVehicleIdRoute,
+  VehiclesIdRoute: VehiclesIdRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  VehiclesIndexRoute: VehiclesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
