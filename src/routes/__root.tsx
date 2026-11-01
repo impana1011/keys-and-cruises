@@ -11,6 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import { Navbar, Footer } from "../components/Layout";
+import { VehicleRecommendationChatbot } from "../components/VehicleRecommendationChatbot";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -125,6 +126,7 @@ function RootComponent() {
       <Navbar />
       <Outlet />
       <Footer />
+      <VehicleRecommendationChatbot />
     </QueryClientProvider>
   );
 }

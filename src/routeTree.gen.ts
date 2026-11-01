@@ -15,6 +15,7 @@ import { Route as MyBookingsRouteImport } from './routes/my-bookings'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminBookingsRouteImport } from './routes/admin.bookings'
+import { Route as AdminMaintenanceRouteImport } from './routes/admin.maintenance'
 import { Route as AdminVehiclesRouteImport } from './routes/admin.vehicles'
 import { Route as BookingConfirmationIdRouteImport } from './routes/booking-confirmation.$id'
 import { Route as BookingVehicleIdRouteImport } from './routes/booking.$vehicleId'
@@ -51,6 +52,11 @@ const AdminBookingsRoute = AdminBookingsRouteImport.update({
   path: '/admin/bookings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminMaintenanceRoute = AdminMaintenanceRouteImport.update({
+  id: '/admin/maintenance',
+  path: '/admin/maintenance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminVehiclesRoute = AdminVehiclesRouteImport.update({
   id: '/admin/vehicles',
   path: '/admin/vehicles',
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/my-bookings': typeof MyBookingsRoute
   '/register': typeof RegisterRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/maintenance': typeof AdminMaintenanceRoute
   '/admin/vehicles': typeof AdminVehiclesRoute
   '/booking-confirmation/$id': typeof BookingConfirmationIdRoute
   '/booking/$vehicleId': typeof BookingVehicleIdRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/my-bookings': typeof MyBookingsRoute
   '/register': typeof RegisterRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/maintenance': typeof AdminMaintenanceRoute
   '/admin/vehicles': typeof AdminVehiclesRoute
   '/booking-confirmation/$id': typeof BookingConfirmationIdRoute
   '/booking/$vehicleId': typeof BookingVehicleIdRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/my-bookings': typeof MyBookingsRoute
   '/register': typeof RegisterRoute
   '/admin/bookings': typeof AdminBookingsRoute
+  '/admin/maintenance': typeof AdminMaintenanceRoute
   '/admin/vehicles': typeof AdminVehiclesRoute
   '/booking-confirmation/$id': typeof BookingConfirmationIdRoute
   '/booking/$vehicleId': typeof BookingVehicleIdRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/my-bookings'
     | '/register'
     | '/admin/bookings'
+    | '/admin/maintenance'
     | '/admin/vehicles'
     | '/booking-confirmation/$id'
     | '/booking/$vehicleId'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/my-bookings'
     | '/register'
     | '/admin/bookings'
+    | '/admin/maintenance'
     | '/admin/vehicles'
     | '/booking-confirmation/$id'
     | '/booking/$vehicleId'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/my-bookings'
     | '/register'
     | '/admin/bookings'
+    | '/admin/maintenance'
     | '/admin/vehicles'
     | '/booking-confirmation/$id'
     | '/booking/$vehicleId'
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   MyBookingsRoute: typeof MyBookingsRoute
   RegisterRoute: typeof RegisterRoute
   AdminBookingsRoute: typeof AdminBookingsRoute
+  AdminMaintenanceRoute: typeof AdminMaintenanceRoute
   AdminVehiclesRoute: typeof AdminVehiclesRoute
   BookingConfirmationIdRoute: typeof BookingConfirmationIdRoute
   BookingVehicleIdRoute: typeof BookingVehicleIdRoute
@@ -217,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminBookingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/maintenance': {
+      id: '/admin/maintenance'
+      path: '/admin/maintenance'
+      fullPath: '/admin/maintenance'
+      preLoaderRoute: typeof AdminMaintenanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/vehicles': {
       id: '/admin/vehicles'
       path: '/admin/vehicles'
@@ -261,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   MyBookingsRoute: MyBookingsRoute,
   RegisterRoute: RegisterRoute,
   AdminBookingsRoute: AdminBookingsRoute,
+  AdminMaintenanceRoute: AdminMaintenanceRoute,
   AdminVehiclesRoute: AdminVehiclesRoute,
   BookingConfirmationIdRoute: BookingConfirmationIdRoute,
   BookingVehicleIdRoute: BookingVehicleIdRoute,
