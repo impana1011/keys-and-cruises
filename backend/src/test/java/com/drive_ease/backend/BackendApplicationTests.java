@@ -1,13 +1,6 @@
 package com.drive_ease.backend;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
-class BackendApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
-}
+import org.springframework.test.context.ActiveProfiles;
+@SpringBootTest @ActiveProfiles("test")
+class BackendApplicationTests { @Test void contextLoads() {} }
